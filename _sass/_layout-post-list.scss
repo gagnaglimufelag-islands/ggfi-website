@@ -1,0 +1,65 @@
+.post-list {
+  .post-card {
+    color: inherit;
+    display:block;
+    padding: $spacing-unit;
+    transition: .3s background-color;
+    background-color: $header-color;
+    margin: 20px 0;
+    border: 1px solid $theme-color;
+    border-radius: 20px;
+
+    h1 {
+      padding-right: 30px;
+      a {
+        display: none;
+        font-size: 0.7em;
+      }
+
+      &:hover a{
+          display: inline;
+      }
+    }
+
+
+    &:hover {
+      text-decoration: none;
+      background-color: $header-color;
+    }
+
+    h3, h2 {
+      margin:0;
+    }
+
+    .news-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      color: $theme-yellow;
+
+      h1 {
+        margin-bottom: 0;
+      }
+    }
+
+    .post-excerpt {
+      margin-top: 25px;
+    }
+
+    &.link {
+      border-width: 1px;
+      background-color: $content-color;
+
+      &:hover {
+        background-color: $header-color;
+      }
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: $theme-color;
+      font-style: italic;
+    }
+  }
+}

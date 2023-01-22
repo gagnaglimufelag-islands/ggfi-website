@@ -1,0 +1,31 @@
+{% assign posts = include.posts %}
+
+{%- if posts.size > 0 -%}
+  {%- if page.list_title -%}
+    <h2 class="post-list-heading">{{ page.list_title }}</h2>
+  {%- endif -%}
+  <div class="post-list">
+    {%- for post in posts -%}
+      <div class="post-card" href="">
+        <div class="news-title">
+          <h2>
+            {{ post.title | escape }}
+            <a href="{{ post.url | relative_url }}">
+              #
+            </a>
+          </h2>
+          <div class="post-date">{{ post.date | date :"%d/%m/%Y"  }}</div>
+        </div>
+        <div class="post-excerpt">
+          {{ post.excerpt }}
+        </div>
+        {% if post.content contains site.excerpt_separator %}
+        <a href="{{ post.url | relative_url }}">
+          Nánar...
+        </a>
+        {% endif %}
+      </div>
+    {%- endfor -%}
+  </div>
+
+{%- endif -%}

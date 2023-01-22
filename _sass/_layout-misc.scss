@@ -1,0 +1,15 @@
+.board {
+  margin: 10px 0 20px 0;
+
+  .board-member{
+    margin: 5px 20px;
+
+    .member-name {
+      font-weight: 800;
+    }
+
+    .member-role {
+      font-style: italic;
+    }
+  }
+}

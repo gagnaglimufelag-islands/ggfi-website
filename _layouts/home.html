@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <div class="main-logo">
+    Gagnaglímufélag Íslands
+  </div>
+
+  {{ content }}
+
+
+  <div class="news-wrapper">
+    {% assign featured = site.posts | sort: "last_updated" | slice: 0,3 %}
+    {%- if featured.size > 0 -%}
+    <h2>
+      Fréttir úr starfi félagsins
+    </h2>
+
+    {% include post_list.html posts=featured %}
+
+    <div class="more-news">
+      <a href="{{ "/news/" | relative_url }}">
+        Eldri fréttir
+      </a>
+    </div>
+  </div>
+
+  {%- endif -%}
+
+</div>
