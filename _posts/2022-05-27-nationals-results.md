@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Landskeppninni lokið
-featured: true
+featured: false
 ---
 
 Landskeppnin fór fram 25. maí samhliða UTmessunni. Alls tóku 18 þátt
