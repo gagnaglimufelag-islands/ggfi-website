@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Forkeppnin hefst
+title: Forkeppnin hafin
 featured: true
 ---
 
