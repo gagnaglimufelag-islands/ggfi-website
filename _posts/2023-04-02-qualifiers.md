@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Forkeppnin hafin
-featured: true
+featured: false
 ---
 
 Forkeppni Gagnaglímunnar er hafin og mun standa yfir til miðnættis 30. apríl. Keppnin mun fara
