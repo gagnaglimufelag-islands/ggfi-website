@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home">
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="hero-copy">
+      <span class="eyebrow">GGFÍ</span>
+      <h1 id="home-title">Gagnaglímufélag Íslands</h1>
+      <div class="hero-lead">{{ section.content | safe }}</div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ get_url(path='/about/', trailing_slash=true) }}">Um félagið</a>
+        <a class="button button-secondary" href="{{ get_url(path='/news/', trailing_slash=true) }}">Fréttir úr starfi félagsins</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <img src="{{ get_url(path='assets/favicons/favicon.svg') }}" alt="" width="240" height="240">
+    </div>
+  </section>
+  {% set news = get_section(path="news/_index.md") %}
+  {% if news.pages %}
+  <section class="news-wrapper" aria-labelledby="news-title">
+    <div class="section-heading">
+      <h2 id="news-title">Fréttir úr starfi félagsins</h2>
+      <a href="{{ news.permalink }}">Eldri fréttir <span aria-hidden="true">→</span></a>
+    </div>
+    {% set posts_to_show = news.pages[0:3] %}
+    {% include "partials/posts.html" %}
+  </section>
+  {% endif %}
+</div>
+{% endblock content %}

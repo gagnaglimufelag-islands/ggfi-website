@@ -1,0 +1,132 @@
+.site-footer {
+  margin-top: clamp(36px, 7vw, 72px);
+  padding: clamp(28px, 5vw, 48px) 0 18px;
+  border-top: 1px solid var(--ggfi-color-border);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(220, 236, 230, .72), transparent 22rem),
+    linear-gradient(180deg, rgba(238, 241, 236, .62), rgba(248, 247, 242, .92));
+
+  .footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px 0 0;
+
+    @include media-query($on-mobile) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}
+
+.sponsor-section {
+  width: calc(100% - 2rem);
+  max-width: calc(#{$content-width} - (#{$spacing-unit} * 4));
+  margin: 0 auto 20px;
+}
+
+.sponsor-kicker {
+  margin: 0 0 12px;
+  color: var(--ggfi-color-ink-muted);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.sponsors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+
+  @include media-query($on-laptop) {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 92px;
+    padding: 18px 22px;
+    border: 1px solid rgba(19, 32, 28, .34);
+    border-radius: var(--ggfi-radius-lg);
+    background:
+      radial-gradient(circle at top left, rgba(142, 209, 185, .16), transparent 12rem),
+      linear-gradient(135deg, #13201c, #1f5c4d);
+    box-shadow: 0 1px 2px rgba(19, 32, 28, .10), inset 0 1px 0 rgba(255, 255, 255, .10);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: rgba(142, 209, 185, .42);
+      box-shadow: var(--ggfi-shadow-md);
+      text-decoration: none;
+    }
+  }
+
+  .sponsor-syndis {
+    background:
+      radial-gradient(circle at top left, rgba(47, 111, 143, .32), transparent 12rem),
+      linear-gradient(135deg, #17231f, #1f5c4d);
+  }
+
+  .sponsor-reykjavik-university {
+    background:
+      radial-gradient(circle at top left, rgba(200, 107, 74, .24), transparent 12rem),
+      linear-gradient(135deg, #13201c, #22332d);
+  }
+
+  img {
+    flex: 1;
+    max-width: 220px;
+    max-height: 58px;
+    object-fit: contain;
+  }
+}
+
+.footer-title {
+  flex: 1;
+  margin-bottom: 0;
+  color: var(--ggfi-color-ink-muted);
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--ggfi-color-primary);
+  }
+
+  a {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--ggfi-color-border);
+    border-radius: 999px;
+    background: var(--ggfi-color-surface);
+
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background: var(--ggfi-color-mist);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-footer {
+    background:
+      radial-gradient(circle at 12% 0%, rgba(31, 92, 77, .26), transparent 22rem),
+      linear-gradient(180deg, rgba(14, 23, 20, .68), rgba(14, 23, 20, .92));
+  }
+}

@@ -1,0 +1,60 @@
+name: Build and deploy Zola
+
+on:
+  push:
+    branches: [master, zola-migration]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install pinned Zola
+        shell: bash
+        run: |
+          set -euo pipefail
+          zola_version="$(cat .zola-version)"
+          mkdir -p "${RUNNER_TEMP}/zola"
+          curl --fail --location --retry 3 \
+            "https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz" \
+            --output "${RUNNER_TEMP}/zola.tar.gz"
+          tar -xzf "${RUNNER_TEMP}/zola.tar.gz" -C "${RUNNER_TEMP}/zola"
+          echo "${RUNNER_TEMP}/zola" >> "${GITHUB_PATH}"
+      - name: Check content and internal Markdown links
+        run: zola check --skip-external-links
+      - name: Build with Zola
+        run: zola build
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  deploy:
+    # Migration pushes and PRs build without publishing. To test deployment
+    # before merging, set PAGES_DEPLOY_BRANCH=zola-migration in repository vars.
+    if: >-
+      github.event_name != 'pull_request' &&
+      github.ref_name == (vars.PAGES_DEPLOY_BRANCH || 'master')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

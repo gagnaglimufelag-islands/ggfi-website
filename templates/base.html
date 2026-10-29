@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default(value=config.default_language) }}">
+{% include "partials/head.html" %}
+<body>
+  <a class="skip-link" href="#main-content">Beint í efni</a>
+  {% include "partials/header.html" %}
+  <main id="main-content" class="page-content" aria-label="Content">
+    <div class="wrapper">
+      {% block content %}{% endblock content %}
+    </div>
+  </main>
+  {% include "partials/footer.html" %}
+</body>
+</html>

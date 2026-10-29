@@ -1,0 +1,38 @@
+$base-font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !default;
+$heading-font-family: $base-font-family;
+$code-font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$base-font-color: #13201c;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.6 !default;
+
+// Shared brand palette from gagnagliman.is.
+$theme-color: #1f5c4d;
+$theme-light: #2f6f8f;
+$theme-red: #a34545;
+$theme-yellow: #d8b45f;
+$theme-orange: #c86b4a;
+$theme-green: #257a50;
+
+$header-color: #f8f7f2;
+
+$spacing-unit:     30px !default;
+
+$content-width:    1360px !default;
+$content-color: #ffffff;
+
+// devices
+$on-mobile:        600px !default;
+$on-laptop:        800px !default;
+
+// mixins
+@mixin relative-font-size($ratio) {
+	font-size: #{$ratio}rem;
+}
+@mixin media-query($device) {
+	@media screen and (max-width: $device) {
+	  @content;
+	}
+}
+

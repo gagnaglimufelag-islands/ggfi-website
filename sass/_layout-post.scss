@@ -1,0 +1,127 @@
+/**
+ * Pages and posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-title,
+.post-content h1 {
+  @include relative-font-size(2.625);
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+
+  @media screen and (min-width: $on-laptop) {
+    @include relative-font-size(3.1);
+  }
+}
+
+.post-content {
+  width: 100%;
+
+  h1, h2, h3 { margin-top: $spacing-unit; }
+  h4, h5, h6 { margin-top: $spacing-unit; }
+
+  h2 {
+    @include relative-font-size(1.75);
+    color: var(--ggfi-color-primary-strong);
+
+    @media screen and (min-width: $on-laptop) {
+      @include relative-font-size(2);
+    }
+  }
+
+  h3 {
+    @include relative-font-size(1.375);
+
+    @media screen and (min-width: $on-laptop) {
+      @include relative-font-size(1.55);
+    }
+  }
+
+  h4 { @include relative-font-size(1.25); }
+  h5 { @include relative-font-size(1.125); }
+  h6 { @include relative-font-size(1.0625); }
+}
+
+article, .comments, .box {
+  padding: clamp(24px, 4vw, 44px);
+  background: var(--ggfi-color-surface);
+  border: 1px solid var(--ggfi-color-border);
+  border-radius: var(--ggfi-radius-xl);
+  box-shadow: var(--ggfi-shadow-sm);
+  margin: 25px 0;
+}
+
+.comments {
+  @media screen and (min-width: $on-mobile) {
+    padding: 15px $spacing-unit;
+  }
+}
+
+.page-content {
+  flex: 1;
+  padding-top: 32px;
+  padding-bottom: 56px;
+}
+
+.post-meta {
+  color: var(--ggfi-color-ink-muted);
+  font-style: italic;
+}
+
+.hero-button-wrapper {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-start;
+
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    min-height: 46px;
+    padding: .75rem 1rem;
+    border: 1px solid var(--ggfi-color-primary);
+    border-radius: 999px;
+    color: white;
+    background-color: var(--ggfi-color-primary);
+    font-size: .98rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-decoration: none;
+    box-shadow: var(--ggfi-shadow-sm);
+
+    &::after {
+      content: "↗";
+      font-size: .95em;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: white;
+      background: var(--ggfi-color-primary-strong);
+      text-decoration: none;
+    }
+  }
+
+  @include media-query($on-mobile) {
+    .hero-button {
+      width: 100%;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-content h2 {
+    color: var(--ggfi-color-primary);
+  }
+
+  .hero-button-wrapper .hero-button {
+    color: #08110e;
+
+    &:hover {
+      color: #08110e;
+    }
+  }
+}

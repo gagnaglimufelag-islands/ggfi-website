@@ -1,0 +1,8 @@
++++
+title = "Nú styttist í forkeppnina"
+date = 2021-01-03
++++
+
+Forkeppnin er handan við hornið, en hún hefst 1. febrúar. Öllum er
+frjálst að taka þátt í keppninni, ungum sem öldnum, en aðeins þeir sem hafa
+keppnisrétt í ECSC geta unnið þáttökurétt í landskeppninni.

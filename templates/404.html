@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="post error-page">
+  <h1>404</h1>
+  <p><strong>Huh?</strong></p>
+  <p>Þessi síða fannst ekki</p>
+  <a class="button button-primary" href="{{ get_url(path='/', trailing_slash=true) }}">Forsíða</a>
+</article>
+{% endblock content %}

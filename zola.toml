@@ -1,0 +1,37 @@
+base_url = "https://ggfi.is"
+title = "Gagnaglímufélag Íslands"
+author = "Gagnaglímufélag Íslands"
+description = "Gagnaglímufélag Íslands"
+default_language = "is"
+compile_sass = true
+generate_feeds = true
+feed_limit = 10
+
+[markdown]
+smart_punctuation = true
+
+[slugify]
+paths_keep_dates = true
+
+[extra]
+email = "ggfi@ggfi.is"
+locale = "is_IS"
+image = "assets/favicons/favicon.png"
+
+[[extra.navigation]]
+title = "Fréttir"
+path = "/news/"
+
+[[extra.navigation]]
+title = "Um félagið"
+path = "/about/"
+
+[[extra.navigation]]
+title = "Lög félagsins"
+path = "/bylaws/"
+
+[extra.social]
+github = "gagnaglimufelag-islands"
+twitter = "gagnagliman"
+facebook = "gagnagliman"
+discord = "https://discord.gg/WetUTgRczH"

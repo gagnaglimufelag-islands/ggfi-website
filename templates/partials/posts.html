@@ -1,0 +1,12 @@
+<div class="post-list">
+  {% for post in posts_to_show %}
+  <article class="post-card">
+    <div class="news-title">
+      <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+      <time class="post-date" datetime="{{ post.date | date(format='%Y-%m-%d') }}">{{ post.date | date(format="%d/%m/%Y") }}</time>
+    </div>
+    <div class="post-excerpt">{% if post.summary %}{{ post.summary | safe }}{% else %}{{ post.content | safe }}{% endif %}</div>
+    {% if post.summary %}<a href="{{ post.permalink }}">Nánar…</a>{% endif %}
+  </article>
+  {% endfor %}
+</div>

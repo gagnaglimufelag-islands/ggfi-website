@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home">
+  <header><h1>{{ section.title }}</h1></header>
+  {{ section.content | safe }}
+  {% set posts_to_show = section.pages %}
+  {% include "partials/posts.html" %}
+</div>
+{% endblock content %}

@@ -1,5 +1,9 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+# Byggður Zola-vefur (zola build og zola serve)
+/public/
+
+# Tímabundnar skrár ritla og stýrikerfa
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
