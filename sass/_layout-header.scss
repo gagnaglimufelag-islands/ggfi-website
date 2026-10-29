@@ -22,17 +22,18 @@
   display: inline-flex;
   align-items: center;
   min-height: 72px;
-  margin: 0;
-  color: var(--ggfi-color-ink);
-  font-weight: 800;
-  letter-spacing: -.02em;
-  text-decoration: none;
 
-  &:hover {
-    color: var(--ggfi-color-ink);
-    text-decoration: none;
+  img {
+    display: block;
+    width: auto;
+    height: 3.05rem;
   }
 
+  @include media-query($on-mobile) {
+    img {
+      height: 2.35rem;
+    }
+  }
 }
 
 .site-icon {
