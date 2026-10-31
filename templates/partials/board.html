@@ -1,7 +1,14 @@
 {% set board = load_data(path="data/board.yml") %}
-<div class="board">
+<ul class="board">
   {% for member in board.members %}
-  <div class="board-member"><span class="member-name">{{ member.name }}</span>, <span class="member-role">{{ member.role }}</span></div>
+  {% set names = member.name | split(pat=" ") %}
+  <li class="board-member">
+    <span class="board-avatar" aria-hidden="true">{{ names | first | truncate(length=1, end="") }}{{ names | last | truncate(length=1, end="") }}</span>
+    <div>
+      <p class="member-role">{{ member.role }}</p>
+      <h3 class="member-name">{{ member.name }}</h3>
+    </div>
+  </li>
   {% endfor %}
-</div>
-<p>Stjórn þessi var kosin á síðasta aðalfundi GGFÍ, þann {{ board.formed }}.</p>
+</ul>
+<p class="board-formed">Stjórnin var kosin á aðalfundi GGFÍ þann {{ board.formed }}.</p>

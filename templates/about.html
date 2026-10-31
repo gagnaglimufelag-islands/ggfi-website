@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+{% set board = load_data(path="data/board.yml") %}
+<div class="about-page">
+  <section class="home-hero about-hero" aria-labelledby="about-title">
+    <div class="hero-copy">
+      <span class="eyebrow">Gagnaglímufélag Íslands</span>
+      <h1 id="about-title">{{ page.title }}</h1>
+      <div class="about-intro">{{ page.content | safe }}</div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#stjorn-felagsins">Stjórn félagsins <span aria-hidden="true">↓</span></a>
+        <a class="button button-secondary" href="{{ get_url(path='/bylaws/', trailing_slash=true) }}">Lög félagsins <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <aside class="about-path" aria-labelledby="about-path-title">
+      <span class="about-path-label">Leiðin í landsliðið</span>
+      <h2 id="about-path-title">Frá fyrstu þraut<br>á Evrópumót.</h2>
+      <ol>
+        <li><span class="about-step" aria-hidden="true">01</span><div><strong>Gagnaglíman</strong><span>Keppnishópur Íslands valinn</span></div></li>
+        <li><span class="about-step" aria-hidden="true">02</span><div><strong>Þjálfun og undirbúningur</strong><span>Færni og liðsheild byggð upp</span></div></li>
+        <li><span class="about-step" aria-hidden="true">03</span><div><strong>Netöryggiskeppni Evrópu</strong><span>Keppt fyrir Íslands hönd</span></div></li>
+      </ol>
+    </aside>
+    <dl class="about-facts" aria-label="Um félagið í stuttu máli">
+      <div><dt>Stofnað</dt><dd>{{ page.extra.founded }}</dd></div>
+      <div><dt>Óformlegt starf frá</dt><dd>{{ page.extra.informal_since }}</dd></div>
+      <div><dt>Kennitala</dt><dd>{{ page.extra.registration }}</dd></div>
+    </dl>
+  </section>
+
+  <section class="about-section about-board" aria-labelledby="stjorn-felagsins">
+    <div class="section-heading">
+      <h2 id="stjorn-felagsins">Stjórn félagsins</h2>
+      <span class="about-year">{{ board.formed | split(pat=" ") | last }}</span>
+    </div>
+    {% include "partials/board.html" %}
+  </section>
+
+  <section class="about-section about-brand" aria-labelledby="merki-felagsins">
+    <figure class="about-logo">
+      <img src="{{ get_url(path='assets/favicons/favicon.svg') }}" alt="Merki Gagnaglímufélags Íslands" width="240" height="240">
+    </figure>
+    <div class="about-brand-copy">
+      <span class="eyebrow">Glíma, galdrastafir og gagnaglíma</span>
+      <h2 id="merki-felagsins">Merki félagsins</h2>
+      {{ page.extra.logo_story | markdown | safe }}
+    </div>
+  </section>
+</div>
+{% endblock content %}
