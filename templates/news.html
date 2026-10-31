@@ -1,9 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="home">
-  <header><h1>{{ section.title }}</h1></header>
-  {{ section.content | safe }}
-  {% set posts_to_show = section.pages %}
-  {% include "partials/posts.html" %}
+<div class="home news-home">
+  <section class="home-hero info-hero news-hero" aria-labelledby="news-title">
+    <div>
+      <span class="eyebrow">Úr starfi GGFÍ</span>
+      <h1 id="news-title">{{ section.title }}</h1>
+      <div class="hero-lead">{{ section.content | safe }}</div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#frettir">Lesa fréttir <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+    <aside class="info-contact" aria-labelledby="news-media-title">
+      <span class="info-label">Upplýsingar og myndefni</span>
+      <h2 id="news-media-title">Ertu að vinna frétt?</h2>
+      <p>Hér finnurðu tengilið félagsins, stutta kynningu og merki til niðurhals.</p>
+      <a class="button button-secondary" href="{{ get_url(path='/fjolmidlar/', trailing_slash=true) }}">Fyrir fjölmiðla <span aria-hidden="true">→</span></a>
+    </aside>
+  </section>
+  <section id="frettir" class="news-feed" aria-label="Fréttir úr starfi félagsins">
+    {% set posts_to_show = section.pages %}
+    {% include "partials/posts.html" %}
+  </section>
 </div>
 {% endblock content %}

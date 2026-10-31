@@ -1,0 +1,144 @@
+.info-page {
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+  margin-bottom: 50px;
+
+  h2 { font-size: clamp(1.65rem, 3vw, 2.3rem); line-height: 1.2; }
+  h2[id] { scroll-margin-top: 100px; }
+  p { line-height: 1.8; }
+  .button { gap: .6rem; }
+}
+
+.info-hero {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: center;
+
+  .hero-lead > :last-child { margin-bottom: 0; }
+}
+
+.info-contact {
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid #305e4d;
+  border-radius: var(--ggfi-radius-xl);
+  color: #edf4ee;
+  background:
+    radial-gradient(circle at top right, rgba(142, 209, 185, .2), transparent 18rem),
+    linear-gradient(150deg, #1f5c4d, #13201c);
+
+  h2 { margin-top: 16px; color: #fff; }
+  p { color: #c5d8ce; }
+  .contact-email {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 0;
+    color: #fff;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 800;
+    text-decoration-color: #8ed1b9;
+    overflow-wrap: anywhere;
+  }
+}
+
+.info-label {
+  color: #c5e6d7;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.info-section {
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--ggfi-color-border);
+  border-radius: var(--ggfi-radius-xl);
+  background: var(--ggfi-color-surface);
+  box-shadow: var(--ggfi-shadow-sm);
+
+  > :last-child { margin-bottom: 0; }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.info-card {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--ggfi-color-border);
+  border-radius: var(--ggfi-radius-lg);
+  background: var(--ggfi-color-mist);
+
+  h3 { font-size: 1.25rem; line-height: 1.35; }
+  > :last-child { margin-bottom: 0; }
+}
+
+.press-summary {
+  margin: 24px 0;
+  padding: 24px;
+  border-left: 4px solid var(--ggfi-color-primary);
+  border-radius: 0 var(--ggfi-radius-md) var(--ggfi-radius-md) 0;
+  background: var(--ggfi-color-mist);
+
+  p { color: var(--ggfi-color-ink); }
+  > :last-child { margin-bottom: 0; }
+}
+
+.info-links,
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.download-card {
+  display: flex;
+  flex-direction: column;
+  .download-actions { margin-top: auto; padding-top: 8px; }
+}
+
+.logo-preview {
+  display: grid;
+  place-items: center;
+  height: 170px;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid #d8ded5;
+  border-radius: var(--ggfi-radius-md);
+  background: #f8f7f2;
+
+  img { display: block; width: 100%; height: 120px; object-fit: contain; }
+}
+
+.info-note { margin-top: 24px; font-size: .95rem; }
+.support-areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.info-number { display: block; margin-bottom: 20px; color: var(--ggfi-color-primary-strong); font-family: $code-font-family; font-weight: 800; }
+
+.bank-details {
+  margin: 24px 0;
+
+  > div {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ggfi-color-border);
+  }
+
+  dt { color: var(--ggfi-color-ink-muted); }
+  dd { margin: 0; font-weight: 800; }
+  .bank-account { font-family: $code-font-family; font-size: 1.2rem; user-select: all; }
+}
+
+@include media-query($on-laptop) {
+  .info-hero,
+  .info-grid { grid-template-columns: 1fr; }
+}
+
+@include media-query($on-mobile) {
+  .bank-details > div { grid-template-columns: 1fr; gap: 6px; }
+  .info-links .button,
+  .download-actions .button { width: 100%; }
+}

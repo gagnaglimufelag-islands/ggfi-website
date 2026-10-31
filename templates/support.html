@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+{% set support = load_data(path="data/support.yml") %}
+<div class="info-page">
+  <section class="home-hero info-hero" aria-labelledby="support-title">
+    <div>
+      <span class="eyebrow">Samstarf {{ page.extra.year }}</span>
+      <h1 id="support-title">{{ page.title }}</h1>
+      <div class="hero-lead">{{ page.content | safe }}</div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="mailto:{{ config.extra.email }}">Ræðum samstarf <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="#frjals-framlog">Veita styrk <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+    <aside class="info-contact" aria-labelledby="support-contact-title">
+      <span class="info-label">Fyrirtæki og samstarfsaðilar</span>
+      <h2 id="support-contact-title">Leggjum starfinu lið</h2>
+      <p>Fjárframlag, aðstaða, búnaður eða sérþekking. Við finnum saman leið sem hentar.</p>
+      <a class="contact-email" href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a>
+    </aside>
+  </section>
+
+  <section class="info-section" aria-labelledby="support-impact-title">
+    <h2 id="support-impact-title">Stuðningur sem skapar tækifæri</h2>
+    <p>Framlög til félagsins styðja við starfið sem við sinnum allt árið.</p>
+    <div class="info-grid support-areas">
+      {% for area in page.extra.areas %}
+      <div class="info-card">
+        <span class="info-number" aria-hidden="true">0{{ loop.index }}</span>
+        <h3>{{ area.title }}</h3>
+        <p>{{ area.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="info-note">Hafðu samband til að ræða samstarf fyrir {{ page.extra.year }}, nýtingu framlags og kynningu á stuðningi fyrirtækisins.</p>
+  </section>
+
+  <section class="info-section" aria-labelledby="frjals-framlog">
+    <h2 id="frjals-framlog">Frjáls framlög</h2>
+    <p>Fyrirtæki og einstaklingar geta styrkt félagið með millifærslu.</p>
+    <dl class="bank-details">
+      <div><dt>Viðtakandi</dt><dd>{{ support.recipient }}</dd></div>
+      <div><dt>Kennitala</dt><dd>{{ support.registration }}</dd></div>
+      <div><dt>Bankareikningur</dt><dd class="bank-account">{{ support.account }}</dd></div>
+    </dl>
+    <p class="info-note">Ef þú vilt ræða framlag eða fá nánari upplýsingar geturðu sent okkur línu á <a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a>. Takk fyrir stuðninginn!</p>
+  </section>
+</div>
+{% endblock content %}

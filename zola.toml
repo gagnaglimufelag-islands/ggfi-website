@@ -15,6 +15,7 @@ paths_keep_dates = true
 
 [extra]
 email = "ggfi@ggfi.is"
+sponsor_year = 2026
 locale = "is_IS"
 image = "assets/favicons/favicon.png"
 
@@ -27,6 +28,14 @@ title = "Um félagið"
 path = "/about/"
 
 [[extra.navigation]]
+title = "Styðja starfið"
+path = "/styrkir/"
+
+[[extra.navigation]]
+title = "Fyrir fjölmiðla"
+path = "/fjolmidlar/"
+
+[[extra.navigation]]
 title = "Lög félagsins"
 path = "/bylaws/"
 
@@ -35,3 +44,4 @@ github = "gagnaglimufelag-islands"
 twitter = "gagnagliman"
 facebook = "gagnagliman"
 discord = "https://discord.gg/WetUTgRczH"
+linkedin = "https://www.linkedin.com/company/ggfi/"

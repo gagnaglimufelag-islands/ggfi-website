@@ -6,7 +6,7 @@
       <time class="post-date" datetime="{{ post.date | date(format='%Y-%m-%d') }}">{{ post.date | date(format="%d/%m/%Y") }}</time>
     </div>
     <div class="post-excerpt">{% if post.summary %}{{ post.summary | safe }}{% else %}{{ post.content | safe }}{% endif %}</div>
-    {% if post.summary %}<a href="{{ post.permalink }}">Nánar…</a>{% endif %}
+    {% if post.summary %}<a class="button button-secondary button-small post-more" href="{{ post.permalink }}" aria-label="Lesa frétt: {{ post.title }}">Lesa frétt <span aria-hidden="true">→</span></a>{% endif %}
   </article>
   {% endfor %}
 </div>

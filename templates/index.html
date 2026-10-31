@@ -20,7 +20,7 @@
   <section class="news-wrapper" aria-labelledby="news-title">
     <div class="section-heading">
       <h2 id="news-title">Fréttir úr starfi félagsins</h2>
-      <a href="{{ news.permalink }}">Eldri fréttir <span aria-hidden="true">→</span></a>
+      <a class="button button-secondary button-small" href="{{ news.permalink }}">Eldri fréttir <span aria-hidden="true">→</span></a>
     </div>
     {% set posts_to_show = news.pages[0:3] %}
     {% include "partials/posts.html" %}

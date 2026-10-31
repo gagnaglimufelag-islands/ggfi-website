@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="info-page">
+  <section class="home-hero info-hero" aria-labelledby="media-title">
+    <div>
+      <span class="eyebrow">GGFÍ · Upplýsingar og myndefni</span>
+      <h1 id="media-title">{{ page.title }}</h1>
+      <div class="hero-lead">{{ page.content | safe }}</div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#merki">Sækja merki <span aria-hidden="true">↓</span></a>
+        <a class="button button-secondary" href="{{ get_url(path='/news/', trailing_slash=true) }}">Fréttir úr starfinu <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <aside class="info-contact" aria-labelledby="media-contact-title">
+      <span class="info-label">Fjölmiðlafyrirspurnir</span>
+      <h2 id="media-contact-title">Hafðu samband</h2>
+      <p>Fyrir viðtöl, nánari upplýsingar og beiðnir um myndefni.</p>
+      <a class="contact-email" href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a>
+    </aside>
+  </section>
+
+  <section class="info-section" aria-labelledby="media-summary-title">
+    <h2 id="media-summary-title">GGFÍ í stuttu máli</h2>
+    <p>Stutt kynning til notkunar í umfjöllun um félagið.</p>
+    <div class="press-summary">{{ page.extra.summary | markdown | safe }}</div>
+    <div class="info-links">
+      <a class="button button-secondary button-small" href="{{ get_url(path='/about/', trailing_slash=true) }}">Um félagið og stjórnina <span aria-hidden="true">→</span></a>
+      <a class="button button-secondary button-small" href="https://gagnagliman.is/">Keppnisvefur Gagnaglímunnar <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="info-section" aria-labelledby="merki">
+    <div class="section-heading">
+      <h2 id="merki">Merki til niðurhals</h2>
+      <a class="button button-secondary" href="{{ get_url(path='assets/media/ggfi-merki.zip') }}" download>Sækja öll merki (ZIP) <span aria-hidden="true">↓</span></a>
+    </div>
+    <p>Veldu SVG fyrir stækkanlegt merki eða PNG með gagnsæjum bakgrunni.</p>
+    <div class="info-grid">
+      {% for logo in page.extra.logos %}
+      <div class="info-card download-card">
+        <div class="logo-preview">
+          <img src="{{ get_url(path=logo.svg) }}" alt="{{ logo.alt }}" loading="lazy">
+        </div>
+        <h3>{{ logo.title }}</h3>
+        <p>{{ logo.description }}</p>
+        <div class="download-actions">
+          <a class="button button-secondary" href="{{ get_url(path=logo.svg) }}" download="{{ logo.filename }}" aria-label="{{ logo.title }} — sækja SVG">Sækja SVG <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="{{ get_url(path=logo.png) }}" download aria-label="{{ logo.title }} — sækja PNG">Sækja PNG <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="info-note">Notaðu merkin í upprunalegum litum og haltu hlutföllum þeirra. Ef þig vantar annað efni geturðu <a href="mailto:{{ config.extra.email }}">haft samband við okkur</a>.</p>
+  </section>
+</div>
+{% endblock content %}
