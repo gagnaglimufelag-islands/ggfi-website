@@ -7,15 +7,15 @@
       <h1 id="home-title">Gagnaglímufélag Íslands</h1>
       <div class="hero-lead">{{ section.content | safe }}</div>
       <div class="hero-actions">
-        <a class="button button-primary" href="{{ get_url(path='/about/', trailing_slash=true) }}">Um félagið</a>
-        <a class="button button-secondary" href="{{ get_url(path='/news/', trailing_slash=true) }}">Fréttir úr starfi félagsins</a>
+        <a class="button button-primary" href="{{ get_url(path='/um-felagid/', trailing_slash=true) }}">Um félagið</a>
+        <a class="button button-secondary" href="{{ get_url(path='/frettir/', trailing_slash=true) }}">Fréttir úr starfi félagsins</a>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <img src="{{ get_url(path='assets/favicons/favicon.svg') }}" alt="" width="240" height="240">
     </div>
   </section>
-  {% set news = get_section(path="news/_index.md") %}
+  {% set news = get_section(path="frettir/_index.md") %}
   {% if news.pages %}
   <section class="news-wrapper" aria-labelledby="news-title">
     <div class="section-heading">

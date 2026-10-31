@@ -8,7 +8,7 @@
       <div class="hero-lead">{{ page.content | safe }}</div>
       <div class="hero-actions">
         <a class="button button-primary" href="#merki">Sækja merki <span aria-hidden="true">↓</span></a>
-        <a class="button button-secondary" href="{{ get_url(path='/news/', trailing_slash=true) }}">Fréttir úr starfinu <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="{{ get_url(path='/frettir/', trailing_slash=true) }}">Fréttir úr starfinu <span aria-hidden="true">→</span></a>
       </div>
     </div>
     <aside class="info-contact" aria-labelledby="media-contact-title">
@@ -24,7 +24,7 @@
     <p>Stutt kynning til notkunar í umfjöllun um félagið.</p>
     <div class="press-summary">{{ page.extra.summary | markdown | safe }}</div>
     <div class="info-links">
-      <a class="button button-secondary button-small" href="{{ get_url(path='/about/', trailing_slash=true) }}">Um félagið og stjórnina <span aria-hidden="true">→</span></a>
+      <a class="button button-secondary button-small" href="{{ get_url(path='/um-felagid/', trailing_slash=true) }}">Um félagið og stjórnina <span aria-hidden="true">→</span></a>
       <a class="button button-secondary button-small" href="https://gagnagliman.is/">Keppnisvefur Gagnaglímunnar <span aria-hidden="true">↗</span></a>
     </div>
   </section>

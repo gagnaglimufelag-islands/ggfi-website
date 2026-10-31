@@ -28,3 +28,10 @@ zola build
 ```
 
 Tilbúinn vefur verður í `public/` og er birtur beint þaðan. 
+
+## Vefslóðir
+
+Vefslóðir síðna og frétta eru á íslensku, án séríslenskra stafa:
+`/frettir/`, `/um-felagid/`, `/log-felagsins/`, `/fjolmidlar/` og `/styrkir/`.
+Fréttir eru undir `content/frettir/` og fá slóð eftir skráarnafni,
+með dagsetningu og íslensku heiti.

@@ -9,7 +9,7 @@
       </button>
       <div id="site-navigation" class="trigger">
         {% for link in config.extra.navigation %}
-        {% set active = current_path is defined and (current_path == link.path or (link.path == '/news/' and page is defined and page.date)) %}
+        {% set active = current_path is defined and (current_path == link.path or (link.path == '/frettir/' and page is defined and page.date)) %}
         <a class="page-link{% if active %} active{% endif %}" href="{{ get_url(path=link.path, trailing_slash=true) }}"{% if active %} aria-current="{% if current_path == link.path %}page{% else %}true{% endif %}"{% endif %}>{{ link.title }}</a>
         {% endfor %}
       </div>

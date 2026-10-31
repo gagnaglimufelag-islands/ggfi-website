@@ -129,7 +129,6 @@
 
   dt { color: var(--ggfi-color-ink-muted); }
   dd { margin: 0; font-weight: 800; }
-  .bank-account { font-family: $code-font-family; font-size: 1.2rem; user-select: all; }
 }
 
 @include media-query($on-laptop) {

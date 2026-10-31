@@ -21,11 +21,11 @@ image = "assets/favicons/favicon.png"
 
 [[extra.navigation]]
 title = "Fréttir"
-path = "/news/"
+path = "/frettir/"
 
 [[extra.navigation]]
 title = "Um félagið"
-path = "/about/"
+path = "/um-felagid/"
 
 [[extra.navigation]]
 title = "Styðja starfið"
@@ -37,7 +37,7 @@ path = "/fjolmidlar/"
 
 [[extra.navigation]]
 title = "Lög félagsins"
-path = "/bylaws/"
+path = "/log-felagsins/"
 
 [extra.social]
 github = "gagnaglimufelag-islands"
