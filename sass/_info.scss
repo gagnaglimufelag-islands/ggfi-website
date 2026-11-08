@@ -86,6 +86,16 @@
   > :last-child { margin-bottom: 0; }
 }
 
+.definition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+
+  dt { margin-bottom: 6px; font-weight: 800; }
+  dd { color: var(--ggfi-color-ink-muted); font-size: .9rem; }
+}
+
 .info-links,
 .download-actions {
   display: flex;
@@ -134,6 +144,7 @@
 @include media-query($on-laptop) {
   .info-hero,
   .info-grid { grid-template-columns: 1fr; }
+  .definition-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @include media-query($on-mobile) {
